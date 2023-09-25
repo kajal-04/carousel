@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+.slider-heading {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.slider {
+  position: relative;
+  user-select: none;
+  width: 75%;
+}
+
+.slider-item {
+  display: flex;
+  position: absolute;
+}
+
+
+.slider-btns button {
+    display: none;
+}
+
+.imageFadeIn {
+  opacity: 1;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.imageFadeOut {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slideIn {
+  animation: slideInAnimation 1s ease-in;
+}
+
+.slideOut {
+  animation: slideOutAnimation 1s ease-in;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slider-content {
+  padding-left: 60px;
+  overflow: hidden;
+}
+
+.dots {
+  height: 15px;
+  position: absolute;
+  top: 0;
+  right: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #EFF3F8;
+  cursor: pointer;
+}
+
+.dot-active {
+  background-color: #957DF2;
+}
+
+@keyframes slideInAnimation {
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutAnimation {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
