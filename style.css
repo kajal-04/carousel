@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url("https://cdn.kekastatic.net/shared/fonts/proximanova/proximanova.css");
 
 * {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Proxima Nova";
 }
 
 body {
   margin: 0;
   padding: 0;
-  display: grid;
-  place-items: center;
 }
 
 .slider-heading {
@@ -18,59 +16,55 @@ body {
   text-align: center;
 }
 
-.slider {
+/* Slider styles */
+.js-slider {
   position: relative;
   user-select: none;
+  display: flex;
+  margin: auto;
   width: 75%;
 }
 
-.slider-item {
-  display: flex;
-  position: absolute;
-}
-
-
-.slider-btns button {
-    display: none;
-}
-
-.imageFadeIn {
-  opacity: 1;
-  transition: opacity 1.5s ease-in-out;
-}
-
-.imageFadeOut {
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-}
-
-.slideIn {
-  animation: slideInAnimation 1s ease-in;
-}
-
-.slideOut {
-  animation: slideOutAnimation 1s ease-in;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-}
-
-.slider-content {
-  padding-left: 60px;
-  overflow: hidden;
-}
-
-.dots {
-  height: 15px;
+.js-slider-item {
   position: absolute;
   top: 0;
-  right: 20%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.js-slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 75%;
+  height: 500px;
+}
+
+.js-image-container {
+  position: relative;
+  width: 300px;
+}
+
+.js-slider-image {
+  position: absolute;
+  width: 250px;
+  height: 320px;
+}
+
+/* Carousel indicator style*/
+.js-slider-indicator {
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap:10px;
+  list-style: none;
 }
 
-.dot {
+.js-indicator-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -78,11 +72,39 @@ body {
   cursor: pointer;
 }
 
-.dot-active {
+.js-dot-active {
   background-color: #957DF2;
 }
 
-@keyframes slideInAnimation {
+/* Image and content slide animation classes */
+.js-image-fade-in {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.js-image-fade-out {
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+
+.js-slide-right-to-left {
+  animation: slideRightToLeft 1s linear;
+}
+
+.js-slide-left {
+  animation: slideLeft 1s linear;
+}
+
+.js-slide-left-to-right {
+  animation: slideleftToRight 1s linear;
+}
+
+.js-slide-right {
+  animation: slideRight 1s linear;
+}
+
+/* Keyframes for slider animations */
+@keyframes slideRightToLeft {
   0%{
     transform: translateX(100%);
   }
@@ -91,11 +113,29 @@ body {
   }
 }
 
-@keyframes slideOutAnimation {
+@keyframes slideRight {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideLeft {
   0%{
     transform: translateX(0);
   }
   100%{
     transform: translateX(-100%);
+  }
+}
+
+@keyframes slideleftToRight {
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0);
   }
 }
